@@ -8,6 +8,13 @@
 import Foundation
 
 
-struct Member: Codable {
+
+struct LoginRequestModel: Codable {
+    let id, password: String
+}
+
+struct JoinRequestModel: Codable {
     let id, name, password: String
 }
+
+
