@@ -9,21 +9,36 @@ import Foundation
 import Combine
 
 class AuthViewModel: ObservableObject {
-//    @Published var member: Member?
+    @Published var member: AuthResponseModel?
+    private var cancelLabels: Set<AnyCancellable> = []
     
-//    func getMember(completion:@escaping () -> Void) {
-//        completion(member!)
-//    }
-//
-//    func getId(completion:@escaping (String) -> Void) {
-//        completion(member!.id)
-//    }
-//
-//    func getName(completion: @escaping (String) -> Void) {
-//        completion(member!.name)
-//    }
-//
-//    func login(id: String, pw: String) {
-//
-//    }
+    private let authService = AuthService()
+    
+    func getMember(completion: @escaping (AuthResponseModel) -> Void) {
+        $member.sink { member in
+            if member != nil {
+                completion(member!)
+            }
+        }.store(in: &cancelLabels)
+    }
+    
+    func getName(completion: @escaping (String) -> Void) {
+        $member.sink { member in
+            if member != nil {
+                completion(member!.name)
+            }
+        }.store(in: &cancelLabels)
+    }
+    
+    func login(id: String, pw: String) {
+        let param = LoginRequestModel(id: id, password: pw)
+        authService.requestLogin(param: param) { member in
+            self.member = member
+        }
+    }
+    
+    func join(id: String, pw: String, name: String) {
+        
+    }
+    
 }

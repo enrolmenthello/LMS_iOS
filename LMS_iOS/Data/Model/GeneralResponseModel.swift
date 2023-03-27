@@ -8,14 +8,14 @@
 import Foundation
 
 
-struct GeneralResponseModel<T: Decodable>: Decodable {
-    let code: Int
-    let httpStatus, message: String
+struct GeneralResponseModel<T: Codable>: Codable {
+    let code: Int?
+    let httpStatus, message: String?
     let result: T?
 }
 
 
-struct GeneralResponseArrayModel<T: Decodable>: Decodable {
+struct GeneralResponseArrayModel<T: Codable>: Codable {
     let code: Int
     let httpStatus, message: String
     let result: [T]?

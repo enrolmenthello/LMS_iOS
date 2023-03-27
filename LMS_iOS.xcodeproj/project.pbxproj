@@ -21,6 +21,7 @@
 		730C70DB29CFFCCE00CD0740 /* AuthResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C70DA29CFFCCE00CD0740 /* AuthResponseModel.swift */; };
 		730C70E329D0027300CD0740 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 730C70E229D0027300CD0740 /* Auth.storyboard */; };
 		730C70E529D0031A00CD0740 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C70E429D0031900CD0740 /* AuthViewController.swift */; };
+		73537C5929D09EC700A716C1 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73537C5829D09EC700A716C1 /* AuthService.swift */; };
 		9AE90099A45255BCD979AF97 /* Pods_LMS_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19AD7AB170EBB35887144CCD /* Pods_LMS_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		730C70DA29CFFCCE00CD0740 /* AuthResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponseModel.swift; sourceTree = "<group>"; };
 		730C70E229D0027300CD0740 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		730C70E429D0031900CD0740 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		73537C5829D09EC700A716C1 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		9E247117F3D6E90ADE7C0BCF /* Pods-LMS_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LMS_iOS.debug.xcconfig"; path = "Target Support Files/Pods-LMS_iOS/Pods-LMS_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		F0FED70A84DA3770D73FF166 /* Pods-LMS_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LMS_iOS.release.xcconfig"; path = "Target Support Files/Pods-LMS_iOS/Pods-LMS_iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,6 +129,7 @@
 		730C703929CC2F3C00CD0740 /* LMS_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				730C704829CC2F3D00CD0740 /* Info.plist */,
 				730C706A29CC2F5300CD0740 /* App */,
 				730C70DD29D0017F00CD0740 /* Data */,
 				730C70E029D001A300CD0740 /* Domain */,
@@ -261,27 +264,8 @@
 			isa = PBXGroup;
 			children = (
 				730C70DC29D0016600CD0740 /* APIManager */,
-				730C70D829CF518700CD0740 /* Model */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		730C70D829CF518700CD0740 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				730C708E29CE857300CD0740 /* GeneralResponseModel.swift */,
-				730C70D929CF519300CD0740 /* Auth */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		730C70D929CF519300CD0740 /* Auth */ = {
-			isa = PBXGroup;
-			children = (
-				730C708B29CE852200CD0740 /* AuthRequsetModel.swift */,
-				730C70DA29CFFCCE00CD0740 /* AuthResponseModel.swift */,
-			);
-			path = Auth;
 			sourceTree = "<group>";
 		};
 		730C70DC29D0016600CD0740 /* APIManager */ = {
@@ -304,6 +288,8 @@
 		730C70DE29D0018300CD0740 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				730C708E29CE857300CD0740 /* GeneralResponseModel.swift */,
+				73537C5429D0965C00A716C1 /* Auth */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -311,6 +297,7 @@
 		730C70DF29D0018900CD0740 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				73537C5729D09EBC00A716C1 /* Auth */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -326,9 +313,25 @@
 		730C70E129D0022400CD0740 /* Surport */ = {
 			isa = PBXGroup;
 			children = (
-				730C704829CC2F3D00CD0740 /* Info.plist */,
 			);
 			path = Surport;
+			sourceTree = "<group>";
+		};
+		73537C5429D0965C00A716C1 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				730C708B29CE852200CD0740 /* AuthRequsetModel.swift */,
+				730C70DA29CFFCCE00CD0740 /* AuthResponseModel.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		73537C5729D09EBC00A716C1 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				73537C5829D09EC700A716C1 /* AuthService.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		881395BD0248BCB44C5A9673 /* Frameworks */ = {
@@ -517,6 +520,7 @@
 				730C708F29CE857300CD0740 /* GeneralResponseModel.swift in Sources */,
 				730C709129CE85C000CD0740 /* AuthViewModel.swift in Sources */,
 				730C703B29CC2F3C00CD0740 /* AppDelegate.swift in Sources */,
+				73537C5929D09EC700A716C1 /* AuthService.swift in Sources */,
 				730C703D29CC2F3C00CD0740 /* SceneDelegate.swift in Sources */,
 				730C70E529D0031A00CD0740 /* AuthViewController.swift in Sources */,
 				730C70DB29CFFCCE00CD0740 /* AuthResponseModel.swift in Sources */,
@@ -704,7 +708,7 @@
 				INFOPLIST_FILE = LMS_iOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Auth;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -733,7 +737,7 @@
 				INFOPLIST_FILE = LMS_iOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Auth;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

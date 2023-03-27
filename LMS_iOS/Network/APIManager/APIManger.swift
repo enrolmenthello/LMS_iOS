@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-private let BASE_URL = "http://localhost:8080/"
+private let BASE_URL = "http://localhost:8080"
 
 class APIManger {
     static let shared = APIManger()
@@ -23,6 +23,7 @@ class APIManger {
         AF
             .request(url, method: .get, parameters: parameter, headers: nil)
             .responseDecodable(of: T.self) { response in
+                print(response)
                 switch response.result {
                 case .success(let success):
                     completionHandler(success)
@@ -35,16 +36,16 @@ class APIManger {
     
     
     
-    func postData<T: Decodable>(urlEndpointString: String,
-                               dataType: T.Type,
-                               parameter: Parameters?,
-                               completionHandler: @escaping (GeneralResponseModel<T>)->Void) {
+    func postData<T: Codable, U: Decodable>(urlEndpointString: String,
+                                            dataType: U.Type,
+                                            parameter: T?,
+                               completionHandler: @escaping (GeneralResponseModel<U>)->Void) {
         
         guard let url = URL(string: BASE_URL + urlEndpointString) else { return }
         
         AF
-            .request(url, method: .post, parameters: parameter, headers: nil)
-            .responseDecodable(of: GeneralResponseModel<T>.self) { response in
+            .request(url, method: .post, parameters: parameter, encoder: .json, headers: nil)
+            .responseDecodable(of: GeneralResponseModel<U>.self) { response in
                 print(response)
                 switch response.result {
                 case .success(let success):

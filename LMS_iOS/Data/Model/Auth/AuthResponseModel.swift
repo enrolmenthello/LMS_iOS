@@ -8,6 +8,6 @@
 import Foundation
 
 
-struct AuthResponseModel {
+struct AuthResponseModel: Codable {
     let id, password, name: String
 }
