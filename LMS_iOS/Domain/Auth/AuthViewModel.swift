@@ -9,6 +9,8 @@ import Foundation
 import Combine
 
 class AuthViewModel: ObservableObject {
+    static let shared = AuthViewModel()
+    
     @Published var member: AuthResponseModel?
     private var cancelLabels: Set<AnyCancellable> = []
     
@@ -38,7 +40,10 @@ class AuthViewModel: ObservableObject {
     }
     
     func join(id: String, pw: String, name: String) {
-        
+        let param = JoinRequestModel(id: id, name: name, password: pw)
+        authService.requestJoin(param: param) { member in
+            self.member = member
+        }
     }
     
 }

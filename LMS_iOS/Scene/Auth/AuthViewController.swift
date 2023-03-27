@@ -9,25 +9,14 @@ import UIKit
 
 class AuthViewController: UIViewController {
     
-    @IBOutlet weak var loginView: UIView!
     
-    @IBOutlet weak var loginIdTextField: UITextField!
-    @IBOutlet weak var loginPwTextField: UITextField!
+    @IBOutlet weak var idTextField: UITextField!
+    @IBOutlet weak var pwTextField: UITextField!
     
-    
-    @IBOutlet weak var joinView: UIView!
-    
-    @IBOutlet weak var joinIdTextField: UITextField!
-    @IBOutlet weak var joinNameTextField: UITextField!
-    @IBOutlet weak var joinPwTextField: UITextField!
-    @IBOutlet weak var joinPwCheckTextField: UITextField!
-    
-    private let authViewModel = AuthViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setup()
         setupNavigationBar()
         setupObserver()
     }
@@ -36,21 +25,19 @@ class AuthViewController: UIViewController {
         setupNavigationBar()
     }
     
-    func setup() {
-        loginView.isHidden = false
-        joinView.isHidden = true
-        
-        
-    }
-    
     func setupNavigationBar() {
         self.navigationController?.navigationBar.isHidden = true
     }
     
     func setupObserver() {
-        authViewModel.getMember { member in
+        AuthViewModel.shared.getMember { member in
             if member != nil {
-                // 메인 화면 이동
+                guard let homeVC = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController else {return}
+                
+                homeVC.modalTransitionStyle = .coverVertical
+                homeVC.modalPresentationStyle = .fullScreen
+                
+                self.navigationController?.pushViewController(homeVC, animated: true)
             }
         }
     }
@@ -68,19 +55,19 @@ class AuthViewController: UIViewController {
     
     
     @IBAction func login(_ sender: Any) {
-        let id = loginIdTextField.text!
-        let pw = loginPwTextField.text!
+        let id = idTextField.text!
+        let pw = pwTextField.text!
         
-        authViewModel.login(id: id, pw: pw)
+        AuthViewModel.shared.login(id: id, pw: pw)
     }
     
     @IBAction func moveToJoin(_ sender: Any) {
-        loginView.isHidden = true
-        joinView.isHidden = false
+        guard let joinVC = self.storyboard?.instantiateViewController(withIdentifier: "JoinViewController") as? JoinViewController else {return}
+        
+        joinVC.modalTransitionStyle = .coverVertical
+        joinVC.modalPresentationStyle = .fullScreen
+        
+        self.navigationController?.pushViewController(joinVC, animated: true)
     }
     
-    
-    
-    @IBAction func join(_ sender: Any) {
-    }
 }

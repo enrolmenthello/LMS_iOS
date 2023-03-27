@@ -22,6 +22,9 @@
 		730C70E329D0027300CD0740 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 730C70E229D0027300CD0740 /* Auth.storyboard */; };
 		730C70E529D0031A00CD0740 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730C70E429D0031900CD0740 /* AuthViewController.swift */; };
 		73537C5929D09EC700A716C1 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73537C5829D09EC700A716C1 /* AuthService.swift */; };
+		736A668F29D177ED00415363 /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736A668E29D177ED00415363 /* JoinViewController.swift */; };
+		73A90B9B29D1E90100172BBE /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73A90B9A29D1E90100172BBE /* Home.storyboard */; };
+		73A90B9D29D1E92400172BBE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A90B9C29D1E92400172BBE /* HomeViewController.swift */; };
 		9AE90099A45255BCD979AF97 /* Pods_LMS_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19AD7AB170EBB35887144CCD /* Pods_LMS_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +68,9 @@
 		730C70E229D0027300CD0740 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		730C70E429D0031900CD0740 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		73537C5829D09EC700A716C1 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		736A668E29D177ED00415363 /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
+		73A90B9A29D1E90100172BBE /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		73A90B9C29D1E92400172BBE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9E247117F3D6E90ADE7C0BCF /* Pods-LMS_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LMS_iOS.debug.xcconfig"; path = "Target Support Files/Pods-LMS_iOS/Pods-LMS_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		F0FED70A84DA3770D73FF166 /* Pods-LMS_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LMS_iOS.release.xcconfig"; path = "Target Support Files/Pods-LMS_iOS/Pods-LMS_iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,14 +135,13 @@
 		730C703929CC2F3C00CD0740 /* LMS_iOS */ = {
 			isa = PBXGroup;
 			children = (
-				730C704829CC2F3D00CD0740 /* Info.plist */,
 				730C706A29CC2F5300CD0740 /* App */,
 				730C70DD29D0017F00CD0740 /* Data */,
 				730C70E029D001A300CD0740 /* Domain */,
 				730C706B29CC2F8C00CD0740 /* Global */,
+				730C704829CC2F3D00CD0740 /* Info.plist */,
 				730C708D29CE855F00CD0740 /* Network */,
 				730C706E29CC2FE100CD0740 /* Scene */,
-				730C70E129D0022400CD0740 /* Surport */,
 			);
 			path = LMS_iOS;
 			sourceTree = "<group>";
@@ -197,7 +202,7 @@
 			children = (
 				730C706F29CC2FFB00CD0740 /* Auth */,
 				730C707129CC302500CD0740 /* Enrolment */,
-				730C707029CC300500CD0740 /* Main */,
+				730C707029CC300500CD0740 /* Home */,
 				730C707329CC311200CD0740 /* Search */,
 				730C707229CC308F00CD0740 /* Subject */,
 				730C707429CC311F00CD0740 /* UserInfo */,
@@ -210,15 +215,18 @@
 			children = (
 				730C70E229D0027300CD0740 /* Auth.storyboard */,
 				730C70E429D0031900CD0740 /* AuthViewController.swift */,
+				736A668E29D177ED00415363 /* JoinViewController.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
 		};
-		730C707029CC300500CD0740 /* Main */ = {
+		730C707029CC300500CD0740 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				73A90B9A29D1E90100172BBE /* Home.storyboard */,
+				73A90B9C29D1E92400172BBE /* HomeViewController.swift */,
 			);
-			path = Main;
+			path = Home;
 			sourceTree = "<group>";
 		};
 		730C707129CC302500CD0740 /* Enrolment */ = {
@@ -308,13 +316,6 @@
 				730C707729CC315300CD0740 /* ViewModel */,
 			);
 			path = Domain;
-			sourceTree = "<group>";
-		};
-		730C70E129D0022400CD0740 /* Surport */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Surport;
 			sourceTree = "<group>";
 		};
 		73537C5429D0965C00A716C1 /* Auth */ = {
@@ -451,6 +452,7 @@
 				730C70E329D0027300CD0740 /* Auth.storyboard in Resources */,
 				730C704729CC2F3D00CD0740 /* LaunchScreen.storyboard in Resources */,
 				730C704429CC2F3D00CD0740 /* Assets.xcassets in Resources */,
+				73A90B9B29D1E90100172BBE /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,7 +526,9 @@
 				730C703D29CC2F3C00CD0740 /* SceneDelegate.swift in Sources */,
 				730C70E529D0031A00CD0740 /* AuthViewController.swift in Sources */,
 				730C70DB29CFFCCE00CD0740 /* AuthResponseModel.swift in Sources */,
+				73A90B9D29D1E92400172BBE /* HomeViewController.swift in Sources */,
 				730C709329CE987200CD0740 /* APIManger.swift in Sources */,
+				736A668F29D177ED00415363 /* JoinViewController.swift in Sources */,
 				730C708C29CE852200CD0740 /* AuthRequsetModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
