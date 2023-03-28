@@ -16,11 +16,9 @@ class AuthViewModel: ObservableObject {
     
     private let authService = AuthService()
     
-    func getMember(completion: @escaping (AuthResponseModel) -> Void) {
+    func getMember(completion: @escaping (AuthResponseModel?) -> Void) {
         $member.sink { member in
-            if member != nil {
-                completion(member!)
-            }
+            completion(member)
         }.store(in: &cancelLabels)
     }
     
@@ -44,6 +42,10 @@ class AuthViewModel: ObservableObject {
         authService.requestJoin(param: param) { member in
             self.member = member
         }
+    }
+    
+    func logout() {
+        self.member = nil
     }
     
 }

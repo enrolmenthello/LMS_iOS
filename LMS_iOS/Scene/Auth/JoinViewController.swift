@@ -48,15 +48,40 @@ class JoinViewController: UIViewController {
     }
     
     @IBAction func join(_ sender: Any) {
-        let id = idTextField.text!
-        let pw = pwTextField.text!
-        let pwCheck = pwCheckTextField.text!
-        let name = nameTextField.text!
+        let id = idTextField.text ?? ""
+        let pw = pwTextField.text ?? ""
+        let pwCheck = pwCheckTextField.text ?? ""
+        let name = nameTextField.text ?? ""
         
-        if pw == pwCheck {
-            AuthViewModel.shared.join(id: id, pw: pw, name: name)
+        if id == "" || pw == "" || pwCheck == "" || name == "" {
+            showAlert(title: "회원가입 오류", message: "회원가입 하기 위해 입력창을 모두 입력해주세요.")
+            return
         }
         
+        if checkPassword() {
+            AuthViewModel.shared.join(id: id, pw: pw, name: name)
+        }else {
+            showAlert(title: "비밀번호 불일치", message: "비밀번호와 비밀번호 재확인이 일치하지 않습니다.")
+            return
+        }
+        
+    }
+    
+    private func checkPassword() -> Bool {
+        let pw = pwTextField.text
+        let checkPw = pwCheckTextField.text
+        if pw == checkPw {
+            return true
+        }else{
+            return false
+        }
+    }
+    
+    private func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .default)
+        alert.addAction(ok)
+        self.present(alert, animated: true)
     }
     
     

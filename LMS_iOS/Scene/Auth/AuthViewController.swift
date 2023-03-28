@@ -55,8 +55,13 @@ class AuthViewController: UIViewController {
     
     
     @IBAction func login(_ sender: Any) {
-        let id = idTextField.text!
-        let pw = pwTextField.text!
+        let id = idTextField.text ?? ""
+        let pw = pwTextField.text ?? ""
+        
+        if id == "" || pw == "" {
+            showAlert(title: "로그인 오류", message: "로그인 하기 위해 입력창을 모두 입력해주세요.")
+            return
+        }
         
         AuthViewModel.shared.login(id: id, pw: pw)
     }

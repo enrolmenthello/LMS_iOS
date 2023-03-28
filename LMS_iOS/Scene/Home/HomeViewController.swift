@@ -42,6 +42,8 @@ class HomeViewController: UIViewController {
     
     
     @IBAction func logout(_ sender: Any) {
+        AuthViewModel.shared.logout()
+        self.navigationController?.popViewController(animated: true)
     }
     
 }
