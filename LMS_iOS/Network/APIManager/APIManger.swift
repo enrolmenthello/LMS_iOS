@@ -13,16 +13,17 @@ private let BASE_URL = "http://localhost:8080"
 class APIManger {
     static let shared = APIManger()
     
-    func getData<T: Decodable>(urlEndpointString: String,
-                               dataType: T.Type,
-                               parameter: Parameters?,
-                               completionHandler: @escaping (T)->Void) {
+    func getData<T: Codable, U: Decodable>(urlEndpointString: String,
+                                           responseDataType: U.Type,
+                                           requestDataType: T.Type,
+                                           parameter: T?,
+                                           completionHandler: @escaping (U)->Void) {
         
         guard let url = URL(string: BASE_URL + urlEndpointString) else { return }
         
         AF
             .request(url, method: .get, parameters: parameter, headers: nil)
-            .responseDecodable(of: T.self) { response in
+            .responseDecodable(of: U.self) { response in
                 print(response)
                 switch response.result {
                 case .success(let success):
@@ -39,7 +40,7 @@ class APIManger {
     func postData<T: Codable, U: Decodable>(urlEndpointString: String,
                                             dataType: U.Type,
                                             parameter: T?,
-                               completionHandler: @escaping (GeneralResponseModel<U>)->Void) {
+                                            completionHandler: @escaping (GeneralResponseModel<U>)->Void) {
         
         guard let url = URL(string: BASE_URL + urlEndpointString) else { return }
         

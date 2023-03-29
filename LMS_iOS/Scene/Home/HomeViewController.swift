@@ -30,6 +30,11 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func moveToSearch(_ sender: Any) {
+        let searchVC = UIStoryboard(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
+        
+        SearchViewModel.shared.searchAll()
+        
+        self.navigationController?.pushViewController(searchVC, animated: true)
     }
     
     
